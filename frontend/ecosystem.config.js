@@ -1,18 +1,29 @@
-const dotenv = require("dotenv");
-dotenv.config({ path: "./.env.deploy" });
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env.deploy") });
 
-const { DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REPOSITORY, DEPLOY_REF } =
-  process.env;
+const {
+  DEPLOY_USER,
+  DEPLOY_HOST,
+  DEPLOY_PATH,
+  DEPLOY_REPO,
+  DEPLOY_REF = "origin/master",
+} = process.env;
 
 module.exports = {
+  apps: [
+    {
+      name: "frontend",
+      script: "./build/index.html",
+    },
+  ],
   deploy: {
     production: {
       user: DEPLOY_USER,
       host: DEPLOY_HOST,
       ref: DEPLOY_REF,
-      repo: DEPLOY_REPOSITORY,
+      repo: DEPLOY_REPO,
       path: DEPLOY_PATH,
-      "post-deploy": "cd frontend && pwd && npm ci && npm run build",
+      "post-deploy": `cd ${DEPLOY_PATH}source/frontend && npm i && NODE_OPTIONS=--openssl-legacy-provider npm run build`,
     },
   },
 };
