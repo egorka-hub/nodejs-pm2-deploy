@@ -16,6 +16,10 @@ module.exports = {
       script: './dist/app.js',
     },
   ],
+  env: {
+    DB_ADDRESS: 'mongodb://127.0.0.1:27017/mongodb',
+    NODE_ENV: 'production',
+  },
   deploy: {
     production: {
       user: DEPLOY_USER,
