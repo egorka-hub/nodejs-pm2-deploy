@@ -1,3 +1,6 @@
-# Деплой приложения на сервер с использованием pm2
+## Server info
 
-Стартеркит проекта по автоматизации деплоя фронтенда и бэкенда при помощи pm2 (pm2 deploy)
+IP адрес: 147.45.249.59
+
+Frontend: https://egor-practicum.ru  
+Backend: https://api.egor-practicum.ru
