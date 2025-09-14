@@ -139,6 +139,6 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('https://api.egor-practicum.ru');
+  const api = new Api('https://egor-practicum.ru');
 
   export default api;
