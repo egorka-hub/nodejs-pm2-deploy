@@ -8,7 +8,7 @@ module.exports = {
   apps: [
     {
       name: "mesto",
-      script: "dist/app.js",
+      script: "build/app.js",
     },
   ],
   deploy: {
